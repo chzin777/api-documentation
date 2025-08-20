@@ -30,9 +30,9 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-screen responsive-sidebar p-2 sm:p-4 bg-[#151b26] rounded-r-lg shadow space-y-4 z-40 transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0`}
-        style={{ minWidth: 180 }}
-        aria-hidden={!open && window?.innerWidth < 640}
+  className={`fixed top-0 left-0 h-screen responsive-sidebar p-2 sm:p-4 bg-[#151b26] rounded-r-lg shadow space-y-4 z-40 transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0`}
+  style={{ minWidth: 180 }}
+  aria-hidden={!open && typeof window === 'undefined' ? false : (typeof window !== 'undefined' && window.innerWidth < 640 ? !open : false)}
       >
         <div className="mb-4 px-2 flex items-center justify-between">
           <span className="text-lg font-bold tracking-wide text-white">API - DOCS</span>
