@@ -1,9 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function SectionNotasFiscaisItens() {
   const [open, setOpen] = useState(false);
+
+  // Permite abrir programaticamente a section ao clicar no submenu da sidebar
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('open-section-notasfiscaisitens', handler);
+    return () => window.removeEventListener('open-section-notasfiscaisitens', handler);
+  }, []);
   return (
   <section id="notasfiscaisitens" className="responsive-section">
       <div className="w-full mb-2">
@@ -31,7 +38,7 @@ export default function SectionNotasFiscaisItens() {
         className={`transition-all duration-500 ease-in-out overflow-hidden ${open ? 'max-h-[2000px] opacity-100 mt-2' : 'max-h-0 opacity-0'} space-y-4`}
         aria-hidden={!open}
       >
-  <div className="bg-white rounded-lg shadow responsive-card">
+  <div id="notasfiscaisitens-endpoint-get" className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/notas-fiscais-itens</span>
@@ -45,7 +52,7 @@ export default function SectionNotasFiscaisItens() {
 ]`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscaisitens-endpoint-post" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">POST</span>
             <span className="font-mono text-sm text-black">/api/notas-fiscais-itens</span>
@@ -62,7 +69,7 @@ export default function SectionNotasFiscaisItens() {
 }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscaisitens-endpoint-get-id" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/notas-fiscais-itens/:id</span>
@@ -73,7 +80,7 @@ export default function SectionNotasFiscaisItens() {
             <br /><span className="inline-block bg-red-100 text-red-800 px-2 py-0.5 rounded mr-2">404 Not Found</span>{` { "error": "Item não encontrado." }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscaisitens-endpoint-put" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">PUT</span>
             <span className="font-mono text-sm text-black">/api/notas-fiscais-itens/:id</span>
@@ -84,7 +91,7 @@ export default function SectionNotasFiscaisItens() {
             <br /><span className="inline-block bg-red-100 text-red-800 px-2 py-0.5 rounded mr-2">404 Not Found</span>{` { "error": "Item não encontrado." }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscaisitens-endpoint-delete" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">DELETE</span>
             <span className="font-mono text-sm text-black">/api/notas-fiscais-itens/:id</span>

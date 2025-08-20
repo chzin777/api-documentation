@@ -1,9 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function SectionFiliais() {
   const [open, setOpen] = useState(false);
+
+  // Permite abrir programaticamente a section ao clicar no submenu da sidebar
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('open-section-filiais', handler);
+    return () => window.removeEventListener('open-section-filiais', handler);
+  }, []);
   return (
   <section id="filiais" className="responsive-section">
       <div className="w-full mb-2">
@@ -32,7 +39,7 @@ export default function SectionFiliais() {
         aria-hidden={!open}
       >
         {/* Sempre renderiza os cards para animar abrir/fechar */}
-  <div className="bg-white rounded-lg shadow responsive-card">
+  <div id="filiais-endpoint-get" className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/filiais</span>
@@ -45,7 +52,7 @@ export default function SectionFiliais() {
 ]`}
 </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="filiais-endpoint-post" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">POST</span>
             <span className="font-mono text-sm text-black">/api/filiais</span>
@@ -60,7 +67,7 @@ export default function SectionFiliais() {
 }`}
 </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="filiais-endpoint-get-id" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/filiais/:id</span>
@@ -71,7 +78,7 @@ export default function SectionFiliais() {
   <br /><span className="inline-block bg-red-100 text-red-800 px-2 py-0.5 rounded mr-2">404 Not Found</span>{` { "error": "Filial não encontrada." }`}
 </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="filiais-endpoint-put" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">PUT</span>
             <span className="font-mono text-sm text-black">/api/filiais/:id</span>
@@ -82,7 +89,7 @@ export default function SectionFiliais() {
   <br /><span className="inline-block bg-red-100 text-red-800 px-2 py-0.5 rounded mr-2">404 Not Found</span>{` { "error": "Filial não encontrada." }`}
 </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="filiais-endpoint-delete" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">DELETE</span>
             <span className="font-mono text-sm text-black">/api/filiais/:id</span>

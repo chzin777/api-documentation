@@ -1,9 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function SectionClientes() {
   const [open, setOpen] = useState(false);
+
+  // Permite abrir programaticamente a section ao clicar no submenu da sidebar
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('open-section-clientes', handler);
+    return () => window.removeEventListener('open-section-clientes', handler);
+  }, []);
   return (
   <section id="clientes" className="responsive-section">
       <div className="w-full mb-2">
@@ -32,7 +39,7 @@ export default function SectionClientes() {
         aria-hidden={!open}
       >
         {/* Always render the cards for animation to work both ways */}
-  <div className="bg-white rounded-lg shadow responsive-card">
+  <div id="clientes-endpoint-get" className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/clientes</span>
@@ -48,7 +55,7 @@ export default function SectionClientes() {
 ]
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-post" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">POST</span>
             <span className="font-mono text-sm text-black">/api/clientes</span>
@@ -72,7 +79,7 @@ export default function SectionClientes() {
 }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-get-id" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/clientes/:id</span>
@@ -86,7 +93,7 @@ export default function SectionClientes() {
             <span className="inline-block bg-red-100 text-red-800 px-2 py-0.5 rounded mr-2">404 Not Found</span> {"{ \"error\": \"Cliente não encontrado.\" }"}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-put" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">PUT</span>
             <span className="font-mono text-sm text-black">/api/clientes/:id</span>
@@ -100,7 +107,7 @@ export default function SectionClientes() {
             <span className="inline-block bg-red-100 text-red-800 px-2 py-0.5 rounded mr-2">404 Not Found</span> {"{ \"error\": \"Cliente não encontrado.\" }"}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-delete" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">DELETE</span>
             <span className="font-mono text-sm text-black">/api/clientes/:id</span>
@@ -117,7 +124,7 @@ export default function SectionClientes() {
           </pre>
         </div>
         {/* Endpoints extras */}
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-get-doc" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/clientes/documento/:documento</span>
@@ -131,7 +138,7 @@ export default function SectionClientes() {
             <span className="inline-block bg-red-100 text-red-800 px-2 py-0.5 rounded mr-2">404 Not Found</span> {"{ \"error\": \"Cliente não encontrado.\" }"}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-get-cidade" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/clientes/cidade/:cidade</span>
@@ -143,7 +150,7 @@ export default function SectionClientes() {
             <span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded mr-2">200 OK</span> array de clientes da cidade
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-get-estado" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/clientes/estado/:estado</span>
@@ -155,7 +162,7 @@ export default function SectionClientes() {
             <span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded mr-2">200 OK</span> array de clientes do estado
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="clientes-endpoint-get-stats" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/clientes/stats</span>

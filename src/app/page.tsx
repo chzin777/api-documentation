@@ -10,6 +10,9 @@ import SectionIndicadores from "./components/SectionIndicadores";
 import SectionVendedores from "./components/SectionVendedores";
 import SectionEstoque from "./components/SectionEstoque";
 import SectionNotasFiscaisItens from "./components/SectionNotasFiscaisItens";
+import SectionEmpresas from "./components/SectionEmpresas";
+import SectionRFVParameters from "./components/SectionRFVParameters";
+import SectionRFVSegments from "./components/SectionRFVSegments";
 
 export default function Home() {
   return (
@@ -22,6 +25,9 @@ export default function Home() {
           <div className="mt-2 text-sm text-black">Base URL: <span className="font-mono bg-blue-200 px-2 py-1 rounded">http://localhost:3000/api</span></div>
         </section>
   <SectionAuth />
+  <SectionEmpresas />
+  <SectionRFVParameters />
+  <SectionRFVSegments />
   <SectionFiliais />
   <SectionClientes />
   <SectionProdutos />

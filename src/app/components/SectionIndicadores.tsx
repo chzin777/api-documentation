@@ -1,9 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function SectionIndicadores() {
   const [open, setOpen] = useState(false);
+
+  // Permite abrir programaticamente a section ao clicar no submenu da sidebar
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('open-section-indicadores', handler);
+    return () => window.removeEventListener('open-section-indicadores', handler);
+  }, []);
   return (
   <section id="indicadores" className="responsive-section">
       <div className="w-full mb-2">
@@ -32,7 +39,7 @@ export default function SectionIndicadores() {
         aria-hidden={!open}
       >
         {/* Sempre renderiza os cards para animar abrir/fechar */}
-  <div className="bg-white rounded-lg shadow responsive-card">
+  <div id="indicadores-endpoint-receita-total" className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/receita-total</span>
@@ -46,7 +53,7 @@ export default function SectionIndicadores() {
 }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="indicadores-endpoint-receita-por-vendedor" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/receita-por-vendedor</span>
@@ -69,7 +76,7 @@ export default function SectionIndicadores() {
 ]`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="indicadores-endpoint-clientes-inativos" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/clientes-inativos?dias=90</span>
@@ -90,7 +97,7 @@ export default function SectionIndicadores() {
 ]`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="indicadores-endpoint-receita-por-tipo-produto" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/receita-por-tipo-produto</span>
@@ -106,7 +113,7 @@ export default function SectionIndicadores() {
 }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="indicadores-endpoint-receita-mensal" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/receita-mensal</span>
@@ -122,7 +129,7 @@ export default function SectionIndicadores() {
 ]`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="indicadores-endpoint-produtos-mais-vendidos" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/produtos-mais-vendidos?limit=10</span>
@@ -140,7 +147,7 @@ export default function SectionIndicadores() {
 ]`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="indicadores-endpoint-vendas-por-filial" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/vendas-por-filial</span>

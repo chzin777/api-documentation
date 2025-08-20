@@ -1,9 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function SectionVendas() {
   const [open, setOpen] = useState(false);
+
+  // Permite abrir programaticamente a section ao clicar no submenu da sidebar
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('open-section-notasfiscais', handler);
+    return () => window.removeEventListener('open-section-notasfiscais', handler);
+  }, []);
   return (
   <section id="notasfiscais" className="responsive-section">
       <div className="w-full mb-2">
@@ -32,7 +39,7 @@ export default function SectionVendas() {
         aria-hidden={!open}
       >
         {/* Always render the cards for animation to work both ways */}
-  <div className="bg-white rounded-lg shadow responsive-card">
+  <div id="notasfiscais-endpoint-get" className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
               GET
@@ -54,7 +61,7 @@ export default function SectionVendas() {
             {`[\n  { ...nota1 },\n  { ...nota2 }\n]`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscais-endpoint-post" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
               POST
@@ -76,7 +83,7 @@ export default function SectionVendas() {
             {`{\n  "numeroNota": 1001,\n  "dataEmissao": "2025-08-19",\n  "valorTotal": 10000,\n  "filialId": 1\n}`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscais-endpoint-get-id" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
               GET
@@ -101,7 +108,7 @@ export default function SectionVendas() {
             {` { "error": "Nota fiscal não encontrada." }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscais-endpoint-put" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
               PUT
@@ -126,7 +133,7 @@ export default function SectionVendas() {
             {` { "error": "Nota fiscal não encontrada." }`}
           </pre>
         </div>
-        <div className="bg-white rounded-lg shadow p-4">
+  <div id="notasfiscais-endpoint-delete" className="bg-white rounded-lg shadow p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
               DELETE
