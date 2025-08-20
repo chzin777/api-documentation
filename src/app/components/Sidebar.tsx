@@ -26,7 +26,7 @@ export default function Sidebar() {
     transform: isMobile ? (open ? 'translateX(0)' : 'translateX(-100%)') : 'translateX(0)',
     transition: 'transform 0.3s',
     width: isMobile ? '80vw' : 320,
-    maxWidth: 320,
+    maxWidth: 250,
   };
   const overlayStyle: React.CSSProperties = {
     position: 'fixed',
