@@ -43,7 +43,7 @@ export default function SectionRFVSegments() {
             <span className="font-mono text-sm text-black">/api/rfv/segments</span>
           </div>
           <div className="text-gray-700 text-sm mb-2">
-            Cria um novo segmento personalizado (ex: "Champions / VIP").
+            Cria um novo segmento personalizado (ex: &quot;Champions / VIP&quot;).
           </div>
           <pre className="bg-[#151b26] text-white rounded p-3 text-xs overflow-x-auto">
             <span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded mr-2">201 Created</span> Segmento criado

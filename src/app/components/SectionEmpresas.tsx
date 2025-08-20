@@ -7,7 +7,7 @@ export default function SectionEmpresas() {
 
   // Ouve evento customizado para abrir a section
   useEffect(() => {
-    const handler = (e: Event) => {
+    const handler = () => {
       setOpen(true);
     };
     window.addEventListener("open-section-empresas", handler);
