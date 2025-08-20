@@ -13,9 +13,9 @@ import SectionNotasFiscaisItens from "./components/SectionNotasFiscaisItens";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 flex flex-col sm:flex-row">
       <Sidebar />
-      <main className="flex-1 p-8 max-w-5xl mx-auto">
+      <main className="flex-1 responsive-main max-w-full sm:max-w-5xl mx-auto w-full">
         <section id="introducao" className="mb-8">
           <h1 className="text-3xl font-bold mb-2 text-black">Bem-vindo à API do Máquina de Vendas</h1>
           <p className="text-gray-700">Esta API permite gerenciar vendas, estoque, clientes, produtos, filiais, vendedores e notas fiscais. Utilize os endpoints abaixo para integrar com seu sistema.</p>

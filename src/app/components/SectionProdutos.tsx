@@ -5,7 +5,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 export default function SectionProdutos() {
   const [open, setOpen] = useState(false);
   return (
-    <section id="produtos" className="mb-8">
+  <section id="produtos" className="responsive-section">
       <div className="w-full mb-2">
         <button
           type="button"
@@ -32,13 +32,13 @@ export default function SectionProdutos() {
         aria-hidden={!open}
       >
         {/* Always render the cards for animation to work both ways */}
-        <div className="bg-white rounded-lg shadow p-4">
+  <div className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/produtos</span>
           </div>
           <div className="text-gray-700 text-sm mb-2">Retorna uma lista com todos os produtos cadastrados, incluindo descrição, tipo e preço.</div>
-          <pre className="bg-[#151b26] text-white rounded p-3 text-xs overflow-x-auto">
+          <pre className="bg-[#151b26] text-white rounded p-3 responsive-pre overflow-x-auto">
             <span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded mr-2">200 OK</span> Retorna array de produtos:
             {"\n"}[
   {"{ ...produto1 }"},

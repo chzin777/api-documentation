@@ -5,7 +5,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 export default function SectionEstoque() {
   const [open, setOpen] = useState(false);
   return (
-    <section id="estoque" className="mb-8">
+  <section id="estoque" className="responsive-section">
       <div className="w-full mb-2">
         <button
           type="button"
@@ -32,13 +32,13 @@ export default function SectionEstoque() {
         aria-hidden={!open}
       >
         {/* Sempre renderiza os cards para animar abrir/fechar */}
-        <div className="bg-white rounded-lg shadow p-4">
+  <div className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/estoque</span>
           </div>
           <div className="text-gray-700 text-sm mb-2">Retorna todas as máquinas cadastradas no estoque, com informações detalhadas de cada item.</div>
-          <pre className="bg-[#151b26] text-white rounded p-3 text-xs overflow-x-auto">
+          <pre className="bg-[#151b26] text-white rounded p-3 responsive-pre overflow-x-auto">
             <span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded mr-2">200 OK</span>{` Retorna array de itens do estoque:`}<br />{`[
   { ...item1 },
   { ...item2 }

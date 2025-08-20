@@ -5,7 +5,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 export default function SectionVendas() {
   const [open, setOpen] = useState(false);
   return (
-    <section id="notasfiscais" className="mb-8">
+  <section id="notasfiscais" className="responsive-section">
       <div className="w-full mb-2">
         <button
           type="button"
@@ -32,7 +32,7 @@ export default function SectionVendas() {
         aria-hidden={!open}
       >
         {/* Always render the cards for animation to work both ways */}
-        <div className="bg-white rounded-lg shadow p-4">
+  <div className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
               GET
@@ -45,7 +45,7 @@ export default function SectionVendas() {
             Retorna todas as notas fiscais cadastradas, com informações
             detalhadas de cada nota.
           </div>
-          <pre className="bg-[#151b26] text-white rounded p-3 text-xs overflow-x-auto">
+          <pre className="bg-[#151b26] text-white rounded p-3 responsive-pre overflow-x-auto">
             <span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded mr-2">
               200 OK
             </span>

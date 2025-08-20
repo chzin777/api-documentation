@@ -5,7 +5,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 export default function SectionIndicadores() {
   const [open, setOpen] = useState(false);
   return (
-    <section id="indicadores" className="mb-8">
+  <section id="indicadores" className="responsive-section">
       <div className="w-full mb-2">
         <button
           type="button"
@@ -32,13 +32,13 @@ export default function SectionIndicadores() {
         aria-hidden={!open}
       >
         {/* Sempre renderiza os cards para animar abrir/fechar */}
-        <div className="bg-white rounded-lg shadow p-4">
+  <div className="bg-white rounded-lg shadow responsive-card">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
             <span className="font-mono text-sm text-black">/api/indicadores/receita-total</span>
           </div>
           <div className="text-gray-700 text-sm mb-2">Receita total de todas as notas fiscais.</div>
-          <pre className="bg-[#151b26] text-white rounded p-3 text-xs overflow-x-auto">
+          <pre className="bg-[#151b26] text-white rounded p-3 responsive-pre overflow-x-auto">
             <span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded mr-2">200 OK</span>
             {`
 {

@@ -112,6 +112,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -119,4 +120,27 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Responsividade global */
+.responsive-main {
+  @apply p-4 sm:p-6 md:p-8 lg:p-10;
+}
+.responsive-section {
+  @apply mb-6 sm:mb-8;
+}
+.responsive-sidebar {
+  @apply max-w-xs w-11/12 sm:w-80;
+}
+.responsive-h1 {
+  @apply text-2xl sm:text-3xl md:text-4xl;
+}
+.responsive-h2 {
+  @apply text-lg sm:text-xl md:text-2xl;
+}
+.responsive-card {
+  @apply p-2 sm:p-4;
+}
+.responsive-pre {
+  @apply text-xs sm:text-sm;
 }

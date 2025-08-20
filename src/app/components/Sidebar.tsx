@@ -4,8 +4,8 @@ import { Home, KeyRound, Building2, Users, Package, FileText, UserCheck, ListOrd
 export default function Sidebar() {
   return (
     <aside
-      className="fixed top-0 left-0 h-screen w-full max-w-xs p-4 bg-[#151b26] rounded-r-lg shadow space-y-4 z-30"
-      style={{ minWidth: 240 }}
+      className="fixed top-0 left-0 h-screen responsive-sidebar p-2 sm:p-4 bg-[#151b26] rounded-r-lg shadow space-y-4 z-30"
+      style={{ minWidth: 180 }}
     >
       <div className="mb-4 px-2">
         <span className="text-lg font-bold tracking-wide text-white">API - DOCS</span>
