@@ -26,8 +26,8 @@ export default function Home() {
   <SectionClientes />
   <SectionProdutos />
   <SectionVendas />
-  <SectionVendedores />
   <SectionNotasFiscaisItens />
+  <SectionVendedores />
   <SectionEstoque />
   <SectionIndicadores />
       </main>
