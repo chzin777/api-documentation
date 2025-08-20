@@ -3,6 +3,10 @@
 import { Home, KeyRound, Building2, Users, Package, FileText, UserCheck, ListOrdered, Boxes, BarChart2, Menu } from "lucide-react";
 import { useState } from "react";
 
+// Tailwind não tem breakpoint 1650px por padrão, então usamos uma custom media query
+// Adicione em tailwind.config.js:
+// theme: { extend: { screens: { 'xxl': '1650px' } } }
+
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
 
@@ -13,7 +17,7 @@ export default function Sidebar() {
     <>
       {/* Botão de menu para mobile */}
       <button
-        className="sm:hidden fixed top-4 left-4 z-40 bg-[#151b26] p-2 rounded shadow"
+        className="xxl:hidden fixed top-4 left-4 z-40 bg-[#151b26] p-2 rounded shadow"
         aria-label="Abrir menu"
         onClick={() => setOpen(true)}
       >
@@ -23,16 +27,16 @@ export default function Sidebar() {
       {/* Overlay escuro para mobile */}
       {open && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-30 sm:hidden"
+          className="fixed inset-0 bg-black bg-opacity-40 z-30 xxl:hidden"
           onClick={() => setOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside
-  className={`fixed top-0 left-0 h-screen responsive-sidebar p-2 sm:p-4 bg-[#151b26] rounded-r-lg shadow space-y-4 z-40 transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0`}
-  style={{ minWidth: 180 }}
-  aria-hidden={!open && typeof window === 'undefined' ? false : (typeof window !== 'undefined' && window.innerWidth < 640 ? !open : false)}
+        className={`fixed top-0 left-0 h-screen responsive-sidebar p-2 xxl:p-4 bg-[#151b26] rounded-r-lg shadow space-y-4 z-40 transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} xxl:translate-x-0`}
+        style={{ minWidth: 180 }}
+        aria-hidden={!open && typeof window === 'undefined' ? false : (typeof window !== 'undefined' && window.innerWidth < 1650 ? !open : false)}
       >
         <div className="mb-4 px-2 flex items-center justify-between">
           <span className="text-lg font-bold tracking-wide text-white">API - DOCS</span>
